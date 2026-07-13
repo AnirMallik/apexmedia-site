@@ -1,32 +1,49 @@
 export default function About() {
   return (
-    <main style={{ padding: "40px" }}>
-      <h1>About ApexMedia</h1>
-      <p>I started ApexMedia to give growing businesses the kind of marketing and web strategy usually reserved for companies with much bigger budgets — websites that are actually found (by people and by AI search engines), lead generation that runs on autopilot, and strategy work sharp enough to win institutional-level pitches. Here's what that looks like in practice.
+    <main className="max-w-6xl mx-auto px-4 py-16">
+      <h1 className="text-4xl font-bold mb-8">About ApexMedia</h1>
 
-## Website Performance & AI Search Visibility
+      <div className="prose prose-lg max-w-none">
+        <p className="text-lg text-gray-700 mb-6">
+          ApexMedia was founded to give growing businesses the kind of marketing and web strategy usually reserved for companies with much bigger budgets.
+        </p>
 
-A website that looks good but doesn't show up in Google, Bing, or AI answer engines like Gemini and ChatGPT isn't doing its job. I run full digital presence audits — scoring a site across technical SEO, structured data, review/social proof signals, and visibility across every major search surface — then build the fix roadmap and execute it.
+        <h2 className="text-2xl font-bold mt-12 mb-4">Our Mission</h2>
+        <p className="text-gray-700 mb-6">
+          We believe every business deserves access to world-class inbound marketing strategy. Our mission is to help companies:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+          <li>Become visible in Google, Bing, and AI search engines</li>
+          <li>Build automated lead generation systems</li>
+          <li>Develop competitive marketing strategies</li>
+          <li>Win more business with better positioning</li>
+        </ul>
 
-*Case in point: RedLine Plumbing.* An audit of their site turned up a critical gap — key pages weren't indexable by search engines or AI crawlers at all. I built a roadmap to take their visibility score from a 37 up to 80+, covering technical SEO fixes, GA4 and call tracking so every lead is attributed to its source, Google Business Profile optimization, and a review-generation plan. The goal: a clear, measurable path from "invisible" to a steady stream of booked jobs.
+        <h2 className="text-2xl font-bold mt-12 mb-4">What We Do</h2>
+        <p className="text-gray-700 mb-6">
+          We audit your entire digital presence, identify where opportunities are hiding, and build systems to capture them. Every recommendation is backed by data and industry benchmarks.
+        </p>
 
-## Automated Lead Generation Systems
+        <h2 className="text-2xl font-bold mt-12 mb-4">The ApexMedia Difference</h2>
+        <p className="text-gray-700 mb-6">
+          Whether you need to show up in local search, deliver qualified leads automatically, or win a competitive pitch—we approach every project with the same rigor:
+        </p>
+        <ol className="list-decimal list-inside text-gray-700 space-y-2">
+          <li>Find where the opportunity is hiding</li>
+          <li>Build the system or strategy to capture it</li>
+          <li>Make the results measurable</li>
+        </ol>
+      </div>
 
-Most local and regional businesses rely on referrals and hope. I build automated systems that scan public data sources — government permit filings, appraisal district records, infrastructure project pipelines, and business listings — multiple times a day to surface leads before competitors even know they exist, then score each one by urgency and opportunity.
-
-*Case in point:* For a DFW-area home services business, I designed a multi-stage lead engine covering the full funnel — upper-funnel signals like property sales and ownership transfers, mid-funnel signals like aging buildings and nearby infrastructure projects, and lower-funnel signals from people actively searching for the service. The system polls free and low-cost public APIs on a schedule and feeds scored, ranked leads directly into a CRM.
-
-## Marketing Strategy & Pitch Development
-
-When the stakes are higher — a competitive RFP, a board presentation, an enterprise pitch — the strategy has to be airtight. I build audience segmentation, competitive positioning, and data-backed marketing plans that hold up under scrutiny.
-
-*Case in point:* For a regional hospital system pitch, I developed a full patient-acquisition and physician-referral strategy — mapping patient and B2B/institutional audience segments, citing verified industry benchmarks (including a documented 334% lead-volume increase from a comparable health system's SEO campaign), and building an AI/ML-driven audience-targeting framework to identify high-value patient segments before competitors could.
-
-## The Common Thread
-
-Whether it's a plumbing company that needs to show up in local search, a contractor who needs qualified leads delivered automatically, or a healthcare system that needs a pitch that wins the room — the approach is the same: find where the opportunity is hiding, build the system or strategy to capture it, and make the results measurable.
-
-**Let's talk about what ApexMedia can do for your business.**</p>
+      <div className="mt-16 bg-blue-50 p-8 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4">Ready to discuss your strategy?</h2>
+        <p className="text-gray-700 mb-4">
+          Let's talk about how ApexMedia can help your business grow.
+        </p>
+        <a href="/contact/" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+          Contact Us
+        </a>
+      </div>
     </main>
   );
 }

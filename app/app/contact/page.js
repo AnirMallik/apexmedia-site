@@ -2,115 +2,108 @@
 
 import { useState } from 'react';
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    setSuccess(false);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-
-      setSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
-      setError(err.message || 'Something went wrong');
-    } finally {
-      setLoading(false);
-    }
-  };
+export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-6">Contact Us</h1>
+    <main className="max-w-6xl mx-auto px-4 py-16">
+      <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
 
-        {success && (
-          <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
-            Thank you! Your message has been sent successfully.
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Contact Info */}
+        <div>
+          <h2 className="text-2xl font-bold mb-6">Let's Talk</h2>
+          <p className="text-gray-600 mb-8">
+            Have questions about your inbound marketing strategy? We'd love to hear from you.
+            Fill out the form and we'll get back to you within 24 hours.
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2">Response Time</h3>
+              <p className="text-gray-600">We typically respond within 24 business hours</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2">Best For</h3>
+              <p className="text-gray-600">Questions, consultations, and project inquiries</p>
+            </div>
           </div>
-        )}
+        </div>
 
-        {error && (
-          <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
-            Error: {error}
-          </div>
-        )}
+        {/* Contact Form */}
+        <div className="bg-gray-50 p-8 rounded-lg">
+          {submitted ? (
+            <div className="text-center">
+              <div className="text-5xl mb-4">✓</div>
+              <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
+              <p className="text-gray-600">
+                Thanks for reaching out. We'll be in touch soon.
+              </p>
+            </div>
+          ) : (
+            <form
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST"
+              onSubmit={() => setSubmitted(true)}
+              className="space-y-4"
+            >
+              <div>
+                <label className="block text-sm font-medium text-gray-900 mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-900 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-900 mb-1">
+                  Phone (optional)
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows="5"
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            ></textarea>
-          </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-900 mb-1">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                ></textarea>
+              </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:bg-gray-400"
-          >
-            {loading ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 rounded-lg font-bold hover:bg-blue-700 transition"
+              >
+                Send Message
+              </button>
+            </form>
+          )}
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -1,0 +1,9 @@
+name = "apexmedia-site"
+type = "javascript"
+main = "out/index.js"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "npm run build"
+cwd = "./"
+dir = "out"
