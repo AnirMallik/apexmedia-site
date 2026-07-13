@@ -1,4 +1,4 @@
-sxexport default function About() {
+export default function About() {
   return (
     <main style={{ padding: "40px" }}>
       <h1>About ApexMedia</h1>
