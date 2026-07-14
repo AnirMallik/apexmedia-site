@@ -14,7 +14,7 @@ const inputStyle = {
 };
 
 const labelStyle = {
-  display: 'block', color: s.charcoal, fontFamily: 'Arial, sans-serif',
+  display: 'block', color: s.cream, fontFamily: 'Arial, sans-serif',
   fontWeight: '700', fontSize: '11px', letterSpacing: '0.15em',
   textTransform: 'uppercase', marginBottom: '7px',
 };
