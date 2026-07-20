@@ -1,7 +1,27 @@
+import { IconBadge, IconHealthcare, IconInsurance, IconEcommerce } from './icons';
+
 const s = {
   cream: '#F5E6C8', creamDark: '#EDD9A3', charcoal: '#1C1C1C',
   crimson: '#B83232', crimsonDark: '#8B1A1A', amber: '#C8922A', warmBrown: '#5A4A3A',
 };
+
+const industries = [
+  {
+    Icon: IconHealthcare,
+    title: 'Healthcare',
+    body: 'From single-location practices to multi-site provider groups, we build compliant patient-acquisition systems that keep appointment books full.',
+  },
+  {
+    Icon: IconInsurance,
+    title: 'Insurance Agencies',
+    body: 'Independent agencies and MGAs use our lead systems to generate qualified quote requests and renewals without leaning on referrals alone.',
+  },
+  {
+    Icon: IconEcommerce,
+    title: 'Ecommerce',
+    body: 'DTC and multi-channel brands turn paid and organic traffic into repeat customers with a full-funnel strategy behind every dollar spent.',
+  },
+];
 
 export default function Home() {
   return (
@@ -50,6 +70,32 @@ export default function Home() {
                 <p style={{ color: s.warmBrown, fontFamily: 'Georgia, serif', fontSize: '15px', lineHeight: '1.7' }}>{item.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Help */}
+      <section className="section-std" style={{ background: s.creamDark, borderTop: `3px solid ${s.amber}`, borderBottom: `3px solid ${s.amber}` }}>
+        <div className="container">
+          <p style={{ color: s.crimson, fontFamily: 'Arial, sans-serif', fontWeight: '700', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '10px' }}>Who We Help</p>
+          <h2 style={{ color: s.charcoal, fontFamily: "'Arial Black', Arial, sans-serif", fontWeight: '900', fontSize: 'clamp(24px, 4vw, 36px)', textTransform: 'uppercase', marginBottom: '40px', borderBottom: `3px solid ${s.crimson}`, paddingBottom: '14px', display: 'inline-block' }}>
+            Industries We Grow
+          </h2>
+          <div className="grid-3-loose">
+            {industries.map((item) => (
+              <div key={item.title} className="card" style={{ background: s.cream, borderTop: `4px solid ${s.crimson}` }}>
+                <IconBadge tone="cream" colors={s}>
+                  <item.Icon />
+                </IconBadge>
+                <h3 style={{ color: s.charcoal, fontFamily: "'Arial Black', Arial, sans-serif", fontWeight: '900', fontSize: '17px', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '16px 0 10px' }}>{item.title}</h3>
+                <p style={{ color: s.warmBrown, fontFamily: 'Georgia, serif', fontSize: '15px', lineHeight: '1.7', marginBottom: '16px' }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: '36px' }}>
+            <a href="/who-we-help/" style={{ color: s.crimson, fontFamily: 'Arial, sans-serif', fontWeight: '700', fontSize: '13px', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: `2px solid ${s.crimson}`, paddingBottom: '4px' }}>
+              See How We Help Each Industry →
+            </a>
           </div>
         </div>
       </section>

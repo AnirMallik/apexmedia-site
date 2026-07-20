@@ -4,7 +4,14 @@ import Link from 'next/link';
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
-  const links = [['/', 'Home'], ['/about/', 'About'], ['/services/', 'Services'], ['/contact/', 'Contact']];
+  const links = [
+    ['/', 'Home'],
+    ['/who-we-help/', 'Who We Help'],
+    ['/services/', 'Services'],
+    ['/capabilities/', 'Capabilities'],
+    ['/about/', 'About'],
+    ['/contact/', 'Contact'],
+  ];
 
   return (
     <nav className="nav-root">
