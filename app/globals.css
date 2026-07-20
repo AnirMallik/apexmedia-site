@@ -62,6 +62,12 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--charcoal);
+}
 
 /* ── Buttons ── */
 .btn-row {
@@ -157,6 +163,15 @@ h1, h2, h3, h4 {
 /* ── Cards ── */
 .card { padding: 36px 28px; }
 
+/* ── Who We Help detail rows ── */
+.who-help-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.who-help-row ul { grid-template-columns: repeat(2, 1fr); }
+
 /* ── Footer ── */
 .footer-inner {
   max-width: 1100px;
@@ -193,6 +208,10 @@ h1, h2, h3, h4 {
   .page-header   { padding: 40px 16px; }
   .card          { padding: 28px 20px; }
 
+  .who-help-row    { grid-template-columns: 1fr; gap: 18px; }
+  .who-help-row ul { grid-template-columns: 1fr; }
+  .capability-grid { grid-template-columns: 1fr !important; }
+
   .footer-inner  { flex-direction: column; text-align: center; gap: 8px; }
 }
 
@@ -203,4 +222,8 @@ h1, h2, h3, h4 {
   .grid-2        { grid-template-columns: 1fr; }
   .grid-2-loose  { grid-template-columns: 1fr; gap: 40px; }
   .grid-3-loose  { grid-template-columns: repeat(2, 1fr); }
+
+  .who-help-row    { grid-template-columns: 1fr; gap: 18px; }
+  .who-help-row ul { grid-template-columns: 1fr; }
+  .capability-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
